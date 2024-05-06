@@ -2,6 +2,7 @@ import { HiOutlineTrash } from "react-icons/hi2";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { removeTodo, toggleTodo } from "../store/todo/todoSlice";
+import toast from "react-hot-toast";
 
 const TodoList = () => {
     const todo = useSelector((state: RootState) => state.todo);
@@ -9,6 +10,9 @@ const TodoList = () => {
 
     const handleRemove = (id: string) => {
         dispatch(removeTodo(id));
+        toast("Todo has been deleted!", {
+            icon: "🗑️",
+        });
     };
 
     const handleDone = (id: string) => {

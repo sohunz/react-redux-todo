@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../store/todo/todoSlice";
+import toast from "react-hot-toast";
 
 const AddTodo = () => {
     const [input, setInput] = useState<string>("");
@@ -12,7 +13,12 @@ const AddTodo = () => {
     };
 
     const handleSubmit = () => {
-        dispatch(addTodo(input));
+        if (input.length > 0) {
+            toast.success("Todo add successfully!");
+            dispatch(addTodo(input));
+        } else {
+            toast.error("Please input todo!");
+        }
         setInput("");
     };
 

@@ -3,7 +3,7 @@ import TodoList from "./TodoList";
 
 const Home = () => {
     return (
-        <div className="max-w-[500px] mx-auto pt-5">
+        <div className="max-w-[600px] mx-auto p-5">
             <AddTodo />
             <TodoList />
         </div>
